@@ -12,7 +12,7 @@ struct s_block{
 
 #define blockSize sizeof(struct s_block)
 
-extern void global;
+void *global = NULL;
 
 struct s_block *findFreeBlock(struct s_block **last, size_t size){
 	struct s_block *current = global;

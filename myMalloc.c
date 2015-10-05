@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
@@ -26,6 +28,7 @@ struct s_block *findFreeBlock(struct s_block **last, size_t size){
 
 struct s_block *requestSpace(struct s_block* last, size_t size){
 	struct s_block *temp;
+	temp = sbrk(0);
 	void *request = sbrk(size + blockSize);
 	assert((void*)temp == request); //not thread safe
 
@@ -131,4 +134,4 @@ void *simpleMalloc(size_t){
 		return ptr;
 	}
 }
-*/ 
+*/
